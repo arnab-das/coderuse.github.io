@@ -2,8 +2,8 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="http://coderuse.com/2017/10/JavaScript-String-Concatenations-A-Few-Gotchas/index.html" >
-    <title>JavaScript String Concatenations A Few Gotchas | CodeRuse</title>
+    <link rel="canonical" href="http://coderuse.com/2018/07/Stop-Logging-In-Ubuntu/index.html" >
+    <title>Stop logging in Ubuntu | CodeRuse</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300|Inconsolata" />
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -26,14 +26,14 @@
 		{
 			"@context": "http://schema.org",
 			"@type": "BlogPosting",
-			"headline": "JavaScript String Concatenations A Few Gotchas",
+			"headline": "Stop logging in Ubuntu",
 			
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
-			    "@id":"http://coderuse.com/2017/10/JavaScript-String-Concatenations-A-Few-Gotchas/"
+			    "@id":"http://coderuse.com/2018/07/Stop-Logging-In-Ubuntu/"
 			},
-			"datePublished": "2017-10-29T18:52:54.000Z",
-			"dateModified": "2018-07-01T18:09:09.223Z",
+			"datePublished": "2018-07-07T06:23:45.000Z",
+			"dateModified": "2018-07-07T06:26:34.177Z",
 			
 			"author": {
 			    "@type": "Person",
@@ -1531,14 +1531,14 @@ amp-twitter {
   	<!-- container -->
   	<div id="container">
 	  	<div id="main">
-		    <article id="post-JavaScript-String-Concatenations-A-Few-Gotchas" class="post">
+		    <article id="post-Stop-Logging-In-Ubuntu" class="post">
 		    
 		    	<!-- entry title -->
 				<div class="title-cover">
 					<div class="entry-header">
 						
 						  <h1 class="article-title entry-title" itemprop="name">
-						    <a href="http://coderuse.com/2017/10/JavaScript-String-Concatenations-A-Few-Gotchas/" target="_blank" itemprop="url">JavaScript String Concatenations A Few Gotchas</a>
+						    <a href="http://coderuse.com/2018/07/Stop-Logging-In-Ubuntu/" target="_blank" itemprop="url">Stop logging in Ubuntu</a>
 						  </h1>
 						
 					</div>
@@ -1546,7 +1546,7 @@ amp-twitter {
 					<!-- datePublished -->
 					<div class="entry-meta-header">
 						<span class="meta-elements date">
-							<time datetime="Oct 29, 2017" itemprop="datePublished">Oct 29, 2017</time>
+							<time datetime="Jul 7, 2018" itemprop="datePublished">Jul 7, 2018</time>
 						</span>
 					</div>
 				</div>
@@ -1580,11 +1580,19 @@ amp-twitter {
 			    	
 			    	
 			    	<!-- content -->
-			  		<p>We use string concatenations in JavaScript frequently. But if we look closely, it may raise a few new confusions. So, let’s begin.</p>
-<p>What will be the output of <code>&#39;a&#39; + + &#39;b&#39;</code>. <code>aNaN</code>. It’s understandable, that something unexpected should come, as we’ve mis-typed an extra <code>+</code>, but what it has to do with the <code>NaN</code>. Why <code>NaN</code>?</p>
-<p>Now, what will be the output of <code>&#39;a&#39; + + &#39;b&#39; + &#39;c&#39;</code>. <code>aNaNc</code>. Quite understandable. Right?</p>
-<p>Now, tell me, what will be the output of <code>&#39;a&#39; + + &#39;b&#39; + 2</code>. Obviously, <code>aNaN2</code>. Correct.</p>
-<p>But, what will be the output of <code>&#39;a&#39; + + 2</code>. Can you guess? Shockingly, but not so unexpectedly, it’s <code>a2</code>. We know, there is some relation of string concatenations with numbers. So, <code>2</code> has absorbed the <code>NaN</code> and hence the result. But what is the relation of string concatenation with <code>Numbers</code>. I’m a little confused. But I’ll try to find the answer.</p>
+			  		<p>Now-a-days cheap VPS’s are very much available. Usually these cheap VPS’s provides very low resources. Minimum reasonable disk space, very low CPU share, 32 to 128 MB RAM. Main problem with low resources is that these fills up very quickly with logs. It would be very beneficial for these systems if the logs may be stopped or at-least minimized. And the logging also takes quite a bit CPU percentage.</p>
+<p>By default Linux systems log very extensively for all the services running. In general we should not stop the logging service altogether. Though it’s possible by invoking the command <code>service rsyslog stop</code> [in this article we are mostly discussing about Ubuntu]. Lot of services may depend on this, as this is one of the core services of the OS.</p>
+<p>But we can stop this logging altogether, keeping the <code>rsyslog</code> service running. Open the file <code>/etc/rsyslog.conf</code> and comment the line <code>$IncludeConfig /etc/rsyslog.d/*.conf</code>. Restart the service by <code>service rsyslog restart</code> or <code>systemctl restart rsyslog</code>. Check the status whether it’s running <code>service rsyslog status</code>. <code>journal</code> may show complain from <code>rsyslog</code> that, it has not found any viable configurations to log. That’s okay.</p>
+<p>Another service for logging and therefore responsible for filling disk is <code>journalctl</code>. For this look for the services that are running. For <code>systemd</code> the services resides, if not otherwised customised in <code>/etc/systemd/system</code>. We can check those files if they contains any command for potential logging. In my case I run <code>Shadowsocks</code> to create secure proxy. I’ve configured this with the help of the documents from <a href="https://www.linode.com/docs/networking/vpn/create-a-socks5-proxy-server-with-shadowsocks-on-ubuntu-and-centos7/" target="_blank" rel="external">linode</a>. But in the script for running <code>Shadowsocks</code> as service, they have started and stopped the service with <code>-v</code> flag. With this flag, <code>Shadowsocks</code> logs each and every connections, that are being made through it. It kind of objects the purpose of using <code>Shadowsocks</code>. Moreover increases the log. Anyways it’s better to have it without the <code>verbose</code> flag.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/ss-server -c /etc/shadowsocks/shadowsocks.json <span class="operator">-a</span> shadowsocks -v start</span><br><span class="line">ExecStop=/usr/<span class="built_in">local</span>/bin/ss-server -c /etc/shadowsocks/shadowsocks.json <span class="operator">-a</span> shadowsocks -v stop</span><br></pre></td></tr></table></figure>
+<p>Also it would be best if nothing comes out of <code>start</code> and <code>stop</code>. So let’s dump all to <code>/dev/null</code>. So the commands would be,</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/ss-server -c /etc/shadowsocks/shadowsocks.json <span class="operator">-a</span> shadowsocks start &gt; /dev/null</span><br><span class="line">ExecStop=/usr/<span class="built_in">local</span>/bin/ss-server -c /etc/shadowsocks/shadowsocks.json <span class="operator">-a</span> shadowsocks stop &gt; /dev/null</span><br></pre></td></tr></table></figure>
+<p>To minimize the logs from <code>journalctl</code>, it’s very helpful to run a <code>cron</code> daily with the following script.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">/bin/journalctl --vacuum-time=<span class="number">1</span>d</span><br><span class="line"><span class="comment"># it's possible to ommit the following line, if one log is manageable for the system disk spce</span></span><br><span class="line">/bin/journalctl --vacuum-size=<span class="number">20</span>M</span><br></pre></td></tr></table></figure>
+<p>Save the file in the <code>home</code> directory, add execution permission by <code>chmod +x clear_logs.sh</code> and set the <code>cron</code> with <code>crontab -e</code>. And add one line like <code>0 22 * * * /root/cron_Jobs/clearlogs.sh</code>. It would run the file once at 10PM.</p>
+<p>Another source of logs are from web servers. For Nginx we can stop the logging by adding the following lines to the server block.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">access_<span class="built_in">log</span> off;</span><br><span class="line">error_<span class="built_in">log</span> off;</span><br></pre></td></tr></table></figure>
+<p>By convention the services stores the log files inside the directory <code>/var/log</code>. Sometimes it’s helpful to check the sizes of the directories inside this. To have consolidated size of a directory use <code>du -sh &lt;directory_name&gt;</code>. To see the running log for a file, suppose <code>/var/log/syslog</code> use <code>tail -f /var/log/syslog</code>. And to see the available disk space of the system <code>df -h</code>.</p>
 
 			  		
 			  		
@@ -1607,26 +1615,14 @@ amp-twitter {
 						<ul class="article-categories-list">
 							
 					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/JavaScript/" class="link-gaTrack" data-linkType="link-categories">
-					    				JavaScript
+					    			<a class="article-categories-list-link" href="/categories/System/" class="link-gaTrack" data-linkType="link-categories">
+					    				System
 					    			</a>
 					    		</li>
 							
 					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/JavaScript/Puzzle/" class="link-gaTrack" data-linkType="link-categories">
-					    				Puzzle
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/JavaScript/Puzzle/Interesting/" class="link-gaTrack" data-linkType="link-categories">
-					    				Interesting
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/JavaScript/Puzzle/Interesting/Programming-Language/" class="link-gaTrack" data-linkType="link-categories">
-					    				Programming Language
+					    			<a class="article-categories-list-link" href="/categories/System/Technical/" class="link-gaTrack" data-linkType="link-categories">
+					    				Technical
 					    			</a>
 					    		</li>
 							
@@ -1642,14 +1638,14 @@ amp-twitter {
 						<ul class="article-tag-list">
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/javascript/" class="link-gaTrack" data-linkType="link-tag">
-					    				javascript
+					    			<a class="article-tag-list-link" href="/tags/logging/" class="link-gaTrack" data-linkType="link-tag">
+					    				logging
 					    			</a>
 					    		</li>
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/string/" class="link-gaTrack" data-linkType="link-tag">
-					    				string
+					    			<a class="article-tag-list-link" href="/tags/ubuntu/" class="link-gaTrack" data-linkType="link-tag">
+					    				ubuntu
 					    			</a>
 					    		</li>
 							
@@ -1664,19 +1660,11 @@ amp-twitter {
 		  	
 			<nav id="article-nav">
 			  
-			  <a href="/2018/07/Stop-Logging-In-Ubuntu/./amp/" id="article-nav-newer" class="article-nav-link-wrap">
+			  
+			  <a href="/2017/10/JavaScript-String-Concatenations-A-Few-Gotchas/./amp/" id="article-nav-older" class="article-nav-link-wrap">
 			    <div class="article-nav-title">
 			      
-			        Stop logging in Ubuntu
-			      
-			    </div>
-			  </a>
-			  
-			  
-			  <a href="/2017/10/A-Short-Refresher-On-Git/./amp/" id="article-nav-older" class="article-nav-link-wrap">
-			    <div class="article-nav-title">
-			      
-			        A Short Refresher On Git
+			        JavaScript String Concatenations A Few Gotchas
 			      
 			    </div>
 			  </a>
