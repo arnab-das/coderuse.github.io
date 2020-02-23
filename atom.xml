@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://coderuse.com/"/>
-  <updated>2018-11-11T16:42:02.004Z</updated>
+  <updated>2020-02-23T16:26:38.956Z</updated>
   <id>http://coderuse.com/</id>
   
   <author>
@@ -16,11 +16,106 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Adoption Of Microservices For RPA</title>
+    <link href="http://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/"/>
+    <id>http://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/</id>
+    <published>2020-02-23T06:23:45.000Z</published>
+    <updated>2020-02-23T16:26:38.956Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;The global robotic process automation market size was valued at USD 1.1 billion in 2019 and is anticipated to witness a CAGR of 33.6% from 2020 to 2027.&lt;br&gt;&lt;a href=&quot;https://www.grandviewresearch.com/industry-analysis/robotic-process-automation-rpa-market&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grand View Research&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Global spends on RPA programs are being projected to rise to 2.4 billion USD by 2022.&lt;br&gt;&lt;a href=&quot;https://www.gartner.com/en/newsroom/press-releases/2018-11-13-gartner-says-worldwide-spending-on-robotic-process-automation-software-to-reach-680-million-in-2018&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gartner Report&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;No doubt Robotic Process Automation is taking the front seat for the majority investments of the enterprises in the coming years. From &lt;a href=&quot;https://www2.deloitte.com/us/en/pages/operations/articles/global-robotic-process-automation-report.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deloitte’s third Annual Global RPA Survey Report&lt;/a&gt;, 35 percent of more than four hundred executives responsible for running transactional operations such as global business services, shared services, finance, procurement, HR, marketing, and operations agreed to “Focus on continuous improvement”, 24 percent to “Increase level of automation” and 17 percent to “Develop analytics capabilities”. Given the high impact of RPA on these top-three priorities, continued investment in its adoption is not surprising.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Organizations are seeking to embrace RPA solutions swiftly while aspiring to realize productivity gains with minimal CaPex (capital expenditure). However, good intentions and promising technologies alone cannot yield the desired results. Organizations are facing teething issues while scaling their RPA implementations from individual business process automation to enterprise-grade RPA. These challenges are classified into three themes&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bot instability&lt;/li&gt;
+&lt;li&gt;low bot velocity&lt;/li&gt;
+&lt;li&gt;code base complexity issues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Excerpts from &lt;a href=&quot;https://medium.com/@sharad_shukla/leveraging-microservices-design-methodology-for-streamlined-bot-development-9d40d96e410f&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sharad Shukla’s Blog&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Most popular and used solutions for RPA, like UIPath, Blue Prism starts like POCs / experiments by the executives or business users in organisations and later come out to be hard to maintain, support and develop complex business workflows. Even with the concepts like &lt;a href=&quot;https://www.linkedin.com/pulse/microbots-architecture-rpa-robson-fernando-veiga/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Microbots Architechture for RPA&lt;/a&gt;, popular solutions fails to meet sweet spot of price vs performance ratio with the growing business needs.&lt;/p&gt;
+&lt;p&gt;Now let’s calculate approximate running cost for using popular RPA solution provider like UIPath. As the pricing has not been clearly mentioned on their website. Following pricing information has bee taken from one of popular &lt;a href=&quot;https://www.edureka.co/community/58057/pricing-scheme-uipath-uipath-studio-orchestrator-licence&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;learning platform’s forum thread&lt;/a&gt;. Also we will try to understand why there has been some &lt;a href=&quot;https://ui.vision/blog/uipath-pricing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;concerns over this&lt;/a&gt;. Not just UIPath, also compare the cost of developing, deploying, maintaining Blue Prism solutions from this &lt;a href=&quot;https://www.itcentralstation.com/product_reviews/blue-prism-review-62487-by-sharad-soni&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;detailed post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here we are going to examine the approach to design, develop, deployment and maintainance for a very simple requirement posed in one of the &lt;a href=&quot;https://forum.uipath.com/t/build-scalable-solution/19923&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;support tickets&lt;/a&gt; of UIPath.&lt;/p&gt;
+&lt;p&gt;Let’s try to chalk out the requirements. The customer stated in the final post of the thread that he is very happy with 4 un-attended bots, governed by one orchestrator (included in the initial diagram) with UIPath Studio running on the same Windows server with 16GB of RAM (as was the discussion in the earlier posts in the same thread). &lt;/p&gt;
+&lt;p&gt;With the pricing model of UIPath, &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;licenses for four bots costs around $8000 x 4 = $32000/year&lt;/li&gt;
+&lt;li&gt;orchestrator around $20000/year&lt;/li&gt;
+&lt;li&gt;the Studio around $2000/year at the minimum price&lt;/li&gt;
+&lt;li&gt;the Windows Server 2016 (assuming as the customer had one bot previously on the server) comes at around $770 per two cores, plus maintaintenance $5000 per year at minimum.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, in total almost &lt;em&gt;$62000 per year&lt;/em&gt; to process emails from customers and creating various tasks to be performed based on the inputs in the mail. &lt;/p&gt;
+&lt;p&gt;May be the bots here are responding the customers with some canned response also, &lt;em&gt;without knowing the sentiment of the customers&lt;/em&gt;. Here I’ve excluded the development cost for the workflows to be run on the bots. But surely we will come back to it later. And being completely driven by the UI, it’s not hard to imagine that preparing a proper and correct workflow, it would require jugglery of loops and if-else conditions, tricky manipulation of available limited options and of-course lot of frustrating to-n-fro conversations with customer supports.&lt;/p&gt;
+&lt;p&gt;Now, come to the solution with custom made micro-apps using AI services from cloud providers like Azure, AWS, Google.&lt;/p&gt;
+&lt;p&gt;Ofcourse I’m slightly biased towards Microsoft Platform, as I’ve been working for a long time with C# and Microsoft Azure. Microsoft also &lt;a href=&quot;https://www.zdnet.com/article/microsoft-says-it-has-come-a-long-way-since-that-open-source-comment/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;have come a long way&lt;/a&gt; since the days of being closed with a proprietary operating system like Windows XP. Now we can develop, build and deploy with &lt;a href=&quot;https://docs.microsoft.com/en-us/archive/msdn-magazine/2016/april/net-core-net-goes-cross-platform-with-net-core&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;.Net Core on cross platform&lt;/a&gt;, means same program can run on Windows, Linux and Mac, all major OS platforms. And .Net Core’s performance on Linux is &lt;a href=&quot;https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/csharp.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;quite impressive&lt;/a&gt;(sometimes it’s even better than C++). And Azure though started late, emerged with feature rich offerrings, more availability zones and of-course lower priced services among three. And among the top three runners showing &lt;a href=&quot;https://intellipaat.com/blog/aws-vs-azure-vs-google-cloud/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;most growth rate&lt;/a&gt; and &lt;a href=&quot;https://www.datamation.com/cloud-computing/aws-vs-azure-vs-google-cloud-comparison.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;second in customer preference&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s figure out the solution we would need to cater the requirement of the customer.&lt;/p&gt;
+&lt;p&gt;First we need a service to read the mails. There are plenty of examples &lt;a href=&quot;https://www.c-sharpcorner.com/UploadFile/jj12345678910/reading-email-and-attachment-from-microsoft-exchange-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;like this&lt;/a&gt; to read mails from exchange servers. By using these we would be able to develop a decent program to read incoming mails from a particular inbox. This mail reader application would just queue the mails into a &lt;em&gt;Email Processing Queue&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Specifics of the tasks created/executed by the UIPath robot is not very clear from the thread. But in the flow diagram given by the customer, may be along with responding customer with a mail, it’s creating Excel reports and feeding data to some databases.&lt;/p&gt;
+&lt;p&gt;For our solution let’s make the email processing a bit more complex. Suppose along with customer support requests, we are also getting invoices from the vendors. So, our mail-receiver application has to first sort through the received mails like a post office. This sorting can be done first by checking the mail address the mail has been sent to. But there may be some emails sent by the customers to wrong email address. So the application also has to understand the intent of the email to sort correctly. To understand this “Intent” / “Emotion” we can use &lt;a href=&quot;https://azure.microsoft.com/en-in/services/cognitive-services/text-analytics/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Azure Text Analytics Service&lt;/a&gt;. It can send sentiment and classification of the words written in a piece of text.&lt;/p&gt;
+&lt;p&gt;Also the invoice mails may contain scanned images of physical bills, challans etc. We have to persist relevant data into the invoice database to create reports. For this we can use &lt;a href=&quot;https://azure.microsoft.com/en-in/services/cognitive-services/computer-vision/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Azure Computer Vision&lt;/a&gt;. This service can respond back with the texts available in the image. Once we get the information we can persist the info in the invoice database.&lt;/p&gt;
+&lt;p&gt;From the customer support mail after understanding the intent or the request itself, the application itself can create tasks / orders to work with or process the invoices from vendors.&lt;/p&gt;
+&lt;p&gt;In total we need 6 micro-services.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Email Reader Micro-Service&lt;/strong&gt;: This would just read the incoming mails and put them into a processing queue&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email Queue Processing Micro-Service&lt;/strong&gt;: This would sort through the mails and put into department specific queue. While sorting this would call Text Analytics Service, get response, looks for specific words to analyse to put the mail into correct departments’ queue. It also attaches the response with the email while putting into the department queues for future references.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accounts Queue Processing Micro-Service&lt;/strong&gt;: This would get the mail, download all the attachments if there be any. Send the images to Azure OCR API, get relevant information, persist the relevant information into the DB, revert back with one email to the vendor for some more supporting documents including the status of the raised invoice.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Customer Support Processing Micro-Service&lt;/strong&gt;: From the intent of the mail received from the Azure Text Service, create proper order / task for the internal team to work with, or if possible send a mail to the customer containing some relevant troubleshooting information.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Customer Relations Micro-Service&lt;/strong&gt;: For this we are planning for a very simple workflow. It would only send emails on customer’s birthdays / anniversaries. Also it can take responsibilities to send pacifier mails / offers to customers with long standing issues.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email Sender Micro-Service&lt;/strong&gt;: This is a very simple application which can only send emails.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now let’s understand the deployment and interactions among these with the following diagram.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Xj1MdwQ.jpg&quot; alt=&quot;RPA with Microservices&quot;&gt;&lt;/p&gt;
+&lt;p&gt;All these six microservices can be easily deployed on a five node Kubernetes Cluster on Azure with 2 cores and 16 GB of RAM running Linux OS (Azure deploys with Ubuntu). On East US 2 region the said configuration comes at around $110/month each node. So, running cost of the whole solution comes at around $550/month, accumulating $6600/year. No license cost or other hidden costs. And this cluster would be much more powerful than the server with 16 GB RAM running 4 bots, orchestrator and studio.&lt;/p&gt;
+&lt;p&gt;Let’s talk about pros and cons of two approaches.&lt;/p&gt;
+&lt;h3 id=&quot;Popular-RPA-solutions-like-UIPath-Blue-Prism&quot;&gt;&lt;a href=&quot;#Popular-RPA-solutions-like-UIPath-Blue-Prism&quot; class=&quot;headerlink&quot; title=&quot;Popular RPA solutions like UIPath, Blue Prism&quot;&gt;&lt;/a&gt;Popular RPA solutions like UIPath, Blue Prism&lt;/h3&gt;&lt;h4 id=&quot;Pros&quot;&gt;&lt;a href=&quot;#Pros&quot; class=&quot;headerlink&quot; title=&quot;Pros&quot;&gt;&lt;/a&gt;Pros&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Easy to start with&lt;/li&gt;
+&lt;li&gt;Requires low skill developers to develop and maintain&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Cons&quot;&gt;&lt;a href=&quot;#Cons&quot; class=&quot;headerlink&quot; title=&quot;Cons&quot;&gt;&lt;/a&gt;Cons&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Running (mainly license) cost is quite large &lt;/li&gt;
+&lt;li&gt;Reusability of bot code is almost zero, making support also quite expensive&lt;/li&gt;
+&lt;li&gt;Low bot speed&lt;/li&gt;
+&lt;li&gt;Bot instability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;RPA-With-MicroServices&quot;&gt;&lt;a href=&quot;#RPA-With-MicroServices&quot; class=&quot;headerlink&quot; title=&quot;RPA With MicroServices&quot;&gt;&lt;/a&gt;RPA With MicroServices&lt;/h4&gt;&lt;h3 id=&quot;Pros-1&quot;&gt;&lt;a href=&quot;#Pros-1&quot; class=&quot;headerlink&quot; title=&quot;Pros&quot;&gt;&lt;/a&gt;Pros&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Low OPEX&lt;/li&gt;
+&lt;li&gt;Being microservice, extremely extensible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Cons-1&quot;&gt;&lt;a href=&quot;#Cons-1&quot; class=&quot;headerlink&quot; title=&quot;Cons&quot;&gt;&lt;/a&gt;Cons&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Needs better planning, design and more skilled developers. But that compensates with the ongoing OPEX of the solution within two to three years.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To conclude, ofcourse starting RPA with MicroServices has cost. But compare it with the maintenance and running cost. And if RPA needs complex workflow with lot of touchpoints, like cloud sevices from Salesforce, Oracle or needs integrations with AI services or needs real time processing (this can be done with CEP on Spark clusters), it’s always better to opt for MicroServices.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;The global robotic process automation market size was valued at USD 1.1 billion in 2019 and is anticipated to witness a CAGR
+    
+    </summary>
+    
+      <category term="MicroService" scheme="http://coderuse.com/categories/MicroService/"/>
+    
+      <category term="Technical" scheme="http://coderuse.com/categories/MicroService/Technical/"/>
+    
+    
+      <category term="microservices" scheme="http://coderuse.com/tags/microservices/"/>
+    
+      <category term="rpa" scheme="http://coderuse.com/tags/rpa/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OIDC - Acquiring Access Token By Implicit Flow From Azure Active Directory</title>
     <link href="http://coderuse.com/2018/10/OIDC-Acquiring-Token-Implicit-Flow-Azure-Active-Directory/"/>
     <id>http://coderuse.com/2018/10/OIDC-Acquiring-Token-Implicit-Flow-Azure-Active-Directory/</id>
     <published>2018-10-11T06:23:45.000Z</published>
-    <updated>2018-11-11T16:42:02.004Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://openid.net/connect/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OpenID Connect&lt;/a&gt;, outlined by &lt;a href=&quot;https://tools.ietf.org/html/rfc6749&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RFC-6749&lt;/a&gt;, allows web based clients to authenticate end users with identity providers and acquire access-token to be used to access web resources, API’s, protected by &lt;a href=&quot;https://en.wikipedia.org/wiki/OAuth#OAuth_2.0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OAuth 2.0&lt;/a&gt; compatible frameworks.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Azure Active Directory&lt;/a&gt; is a identity management service offered by Microsoft hosted on &lt;a href=&quot;https://azure.microsoft.com/en-us/services/active-directory/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Azure&lt;/a&gt; cloud platform. It offers management of user, group and roles within cloud instance of Active Directory. AAD supports all the handshakes outlined by RFC-6749. With a &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/active-directory/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;vast library of documents&lt;/a&gt; from Microsoft, it’s easy to go through the how-tos and quickly spin up a web app authenticating with AAD. But within the tutorials they mostly use complex libraries like &lt;a href=&quot;https://github.com/AzureAD/azure-activedirectory-library-for-js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ADAL.Js&lt;/a&gt; or &lt;a href=&quot;https://github.com/AzureAD/microsoft-authentication-library-for-js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MSAL.Js&lt;/a&gt; for client side authentication with AAD. The libraries are no-doubt very convenient to use and have lot of features. But libraries hides the inner management of urls and the parameters are requested with.&lt;/p&gt;
@@ -62,7 +157,7 @@
     <link href="http://coderuse.com/2018/07/Stop-Logging-In-Ubuntu/"/>
     <id>http://coderuse.com/2018/07/Stop-Logging-In-Ubuntu/</id>
     <published>2018-07-07T06:23:45.000Z</published>
-    <updated>2018-07-07T06:26:34.177Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Now-a-days cheap VPS’s are very much available. Usually these cheap VPS’s provides very low resources. Minimum reasonable disk space, very low CPU share, 32 to 128 MB RAM. Main problem with low resources is that these fills up very quickly with logs. It would be very beneficial for these systems if the logs may be stopped or at-least minimized. And the logging also takes quite a bit CPU percentage.&lt;/p&gt;
 &lt;p&gt;By default Linux systems log very extensively for all the services running. In general we should not stop the logging service altogether. Though it’s possible by invoking the command &lt;code&gt;service rsyslog stop&lt;/code&gt; [in this article we are mostly discussing about Ubuntu]. Lot of services may depend on this, as this is one of the core services of the OS.&lt;/p&gt;
@@ -101,7 +196,7 @@
     <link href="http://coderuse.com/2017/10/JavaScript-String-Concatenations-A-Few-Gotchas/"/>
     <id>http://coderuse.com/2017/10/JavaScript-String-Concatenations-A-Few-Gotchas/</id>
     <published>2017-10-29T18:52:54.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;We use string concatenations in JavaScript frequently. But if we look closely, it may raise a few new confusions. So, let’s begin.&lt;/p&gt;
 &lt;p&gt;What will be the output of &lt;code&gt;&amp;#39;a&amp;#39; + + &amp;#39;b&amp;#39;&lt;/code&gt;. &lt;code&gt;aNaN&lt;/code&gt;. It’s understandable, that something unexpected should come, as we’ve mis-typed an extra &lt;code&gt;+&lt;/code&gt;, but what it has to do with the &lt;code&gt;NaN&lt;/code&gt;. Why &lt;code&gt;NaN&lt;/code&gt;?&lt;/p&gt;
@@ -137,7 +232,7 @@
     <link href="http://coderuse.com/2017/10/A-Short-Refresher-On-Git/"/>
     <id>http://coderuse.com/2017/10/A-Short-Refresher-On-Git/</id>
     <published>2017-10-13T15:44:45.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git&lt;/a&gt; is the most popular version control management tool/system today. Being distributed in nature, it facilitates lower risk of losing the whole repo out-of-the-blue. Because, user always has a copy of the repo. And there are a lot of vendors, offering hosted git server. And most the offerings are free with a reasonable limit.&lt;/p&gt;
 &lt;p&gt;I’ve been using Git for quite a long time. Though I’m not that much familiar with advanced concepts or complex scenarios regarding Git. To do day-to-day normal tasks, mostly I use only six commands(&lt;code&gt;status&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;branch&lt;/code&gt;, &lt;code&gt;checkout&lt;/code&gt;, &lt;code&gt;push&lt;/code&gt;, &lt;code&gt;pull&lt;/code&gt;), with some flags some times. It’s true that I don’t do very complex things with it. But those four commands are enough for me. In this post, I’m iterating those commands one-by-one, possibly with some comments.&lt;/p&gt;
@@ -192,7 +287,7 @@
     <link href="http://coderuse.com/2017/05/socks-proxy-and-shadowsocks/"/>
     <id>http://coderuse.com/2017/05/socks-proxy-and-shadowsocks/</id>
     <published>2017-05-24T03:57:18.000Z</published>
-    <updated>2018-07-01T18:09:09.227Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Recently I had an interesting encounter with SSH tunneling. I was searching for some option to access one VPS with Scaleway, with no public access from outside. I’ve another VPS in Scaleway with public access. Actually VPS with no public IP comes at €1.99/per month. I was thinking to host one MySQL server in that VPS. But the main problem arose, was how to access that server. After some search, I came to know, SSH tunneling is ideal for this scenario and it’s very easy to do also. In my office I use Windows workstation. There I’ve installed Git and for that I get Git Bash. And during installation I had checked the option to make all the unix tools available in path. So, I can use &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;ls&lt;/code&gt;, &lt;code&gt;mkdir&lt;/code&gt;, &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;rm&lt;/code&gt;, &lt;code&gt;sed&lt;/code&gt; all the useful commands. SSH is tunnel is also possible with &lt;a href=&quot;https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Putty&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There are three types of tunnels can be made with &lt;code&gt;ssh&lt;/code&gt;.&lt;/p&gt;
@@ -254,7 +349,7 @@
     <link href="http://coderuse.com/2017/05/Creating-our-own-discussion-forum-with-Slack/"/>
     <id>http://coderuse.com/2017/05/Creating-our-own-discussion-forum-with-Slack/</id>
     <published>2017-05-17T09:29:47.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Recently I’ve created one &lt;a href=&quot;https://coderuse.slack.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;team&lt;/a&gt; in &lt;a href=&quot;https://slack.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Slack&lt;/a&gt;. It’s basically an effort to communicate with all, who wants to communicate with me. In one way it’s an &lt;a href=&quot;https://github.com/sindresorhus/ama&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AMA&lt;/a&gt; from me. I don’t know if someone wants to contact with me or not. But at-least I should keep some channels open to connect.&lt;/p&gt;
 &lt;p&gt;I really appreciate this AMA initiative by &lt;a href=&quot;https://sindresorhus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sindre Sorhus&lt;/a&gt;. And I think that everyone should keep open some channel to contact. Not email. Because email lacks the visibility for everyone. Email is good for one-to-one communication. But forum conversations are generally meant for publicly visible. Conversations as GitHub’s issue-comment presentation is a overkill, if not a little awkward. So, I was searching for an alternative to start my AMA. I like the UI of the currently popular traditional forum softwares, like &lt;a href=&quot;https://www.vbulletin.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;vBulletin&lt;/a&gt;, &lt;a href=&quot;https://www.phpbb.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;phpBB&lt;/a&gt; and &lt;a href=&quot;https://www.google.com/search?q=forum+softwares&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;many others&lt;/a&gt;. But main problem with them is, I’ve to host them personally and hosting a public facing forum needs a lot of time and experience, which I don’t have. There are also some choices for free forum hosting. But, they gives annoying ads all over the pages and have some irrational constraints like limit on users (how can, or why should I put restrictions on user registrations, after all it’s purpose is to communicate with all. I’m not saying my forum is going to be that big. But at-least I should have no such limitations.), limit on posts (this is another disturbing limitation) etc.&lt;/p&gt;
@@ -307,7 +402,7 @@
     <link href="http://coderuse.com/2016/09/JavaScript-Objects-Functions-Classes-In-ES5/"/>
     <id>http://coderuse.com/2016/09/JavaScript-Objects-Functions-Classes-In-ES5/</id>
     <published>2016-09-20T08:55:07.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;JavaScript has five primitive data types: string, number, boolean, null and undefined. And operators like, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;typeof&lt;/code&gt;, &lt;code&gt;instanceof&lt;/code&gt; etc. Other than these, everything else are objects. Even functions are objects, can be created by invoking by &lt;code&gt;Function&lt;/code&gt; constructor and &lt;code&gt;typeof&lt;/code&gt; on a function returns &lt;code&gt;function&lt;/code&gt;.&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// new Function([arg1[, arg2[, ...argN]],] functionBody)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; animal = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Function&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;legs&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;this.legs = legs;&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// check the type&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; animal); &lt;span class=&quot;comment&quot;&gt;// function&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// create an object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; animal(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// and check if the value has been assigned or not &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(a.legs); &lt;span class=&quot;comment&quot;&gt;// 4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -395,7 +490,7 @@
     <link href="http://coderuse.com/2016/09/Configure-GitLab-Backup-Into-Amazon-S3/"/>
     <id>http://coderuse.com/2016/09/Configure-GitLab-Backup-Into-Amazon-S3/</id>
     <published>2016-09-19T12:04:53.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;In the &lt;a href=&quot;/2016/09/Installation-And-Configuration-Of-GitLab-Server-With-CI/&quot;&gt;previous post&lt;/a&gt;, I tried to write a step by step procedure to install and configure a &lt;a href=&quot;https://about.gitlab.com/downloads/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitLab Community Edition Server&lt;/a&gt;. Now, whenever we are running a server with some kind of hosting, whatever that may be, site-hosting, file-hosting, image-hosting or any other kind of hosting, proper backup is needed. Whatever we do to protect our server, for a cloud vps, it’s unlikely, but it may crash, or for some un-known reason, hosting account may be suspended, or host may go down for bankruptsy or server’s IP may get banned and the site can’t be accessed due to the firewall of the ISP. So, there are many reasons, that can result in no-access-to-the-server. And as a precaution, we need to take backup of the server regularly.&lt;/p&gt;
 &lt;p&gt;For GitLab, backup means backup of configuration and application data both. &lt;a href=&quot;https://docs.gitlab.com/omnibus/settings/backups.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;More details&lt;/a&gt;.&lt;/p&gt;
@@ -455,7 +550,7 @@
     <link href="http://coderuse.com/2016/09/Installation-And-Configuration-Of-GitLab-Server-With-CI/"/>
     <id>http://coderuse.com/2016/09/Installation-And-Configuration-Of-GitLab-Server-With-CI/</id>
     <published>2016-09-17T15:16:42.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Please select &lt;a href=&quot;http://releases.ubuntu.com/16.04/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ubuntu 16.04&lt;/a&gt;, if it’s possible, as the server os, for both the servers. I’m using this. I’ll try to write the steps as os agnostic as possible and shall try to give proper links to install for other distributions.&lt;/p&gt;
 &lt;p&gt;And of-course put the domain/sub-domain name you are going to use as the name of the server. It’s required.&lt;/p&gt;
@@ -531,7 +626,7 @@
     <link href="http://coderuse.com/2016/09/How-I-Host-Private-GitLab-With-CI-For-Less-Than-Four-Euro/"/>
     <id>http://coderuse.com/2016/09/How-I-Host-Private-GitLab-With-CI-For-Less-Than-Four-Euro/</id>
     <published>2016-09-16T04:30:34.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;We the creators must take good care of what we create. I, as a software developer write code. A journalist creates new articles. A researcher writes thesis. And so on. These, what we create, does not come without cost. Here the cost is, we have to conceive an idea. Do research on that idea. Collect documents, which have been created by others,on that idea or related to that idea. Read/analyse the collected resources. Think and think over the topic. For days. For months. For some, maybe some years. The creator of Pokemon Go, conceived the idea in 2010. And finally could publish in 2016. It takes time to create. Creation costs ourselves.&lt;/p&gt;
 &lt;p&gt;So, we must take good care of what we create. We must preserve them. And we should take it seriously.&lt;/p&gt;
@@ -587,7 +682,7 @@
     <link href="http://coderuse.com/2016/09/CI-with-Vexor/"/>
     <id>http://coderuse.com/2016/09/CI-with-Vexor/</id>
     <published>2016-09-10T19:34:51.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Today I’ve configured CI with &lt;a href=&quot;https://vexor.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vexor&lt;/a&gt; for this blog. Actually I use &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt; to generate a static site and then upload the generated static content to the remote machine, hosting the blog. Quite simple.&lt;/p&gt;
 &lt;p&gt;Generating the static pages and then upload them to the remote machine takes a lot of effort beside writing a post. And the job is so repetitive. So, CI is a very good use case for this. But, as I use private repo for this, most of the prominent CI hosts charge a lot to build for private repos. After searching a little bit, got the name of &lt;a href=&quot;https://vexor.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vexor&lt;/a&gt;. The best thing is that, they are not limiting you, 1 build unit, 2 build units, private repo etc. You start with free 100 build minutes, then $0.015/min. Quite cheap. And no prior commitment with huge monthly subscriptions (Others are really pricey. I don’t understand, why do they charge over $30/month for a single unit, while builds for most of the normal projects does not go over 1hr. And how many builds per day a project can see. I don’t know.) So, I pleased with the pricing matrix of &lt;a href=&quot;https://vexor.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vexor&lt;/a&gt;.&lt;/p&gt;
@@ -641,7 +736,7 @@
     <link href="http://coderuse.com/2016/08/Moving-new-Git-branch-with-different-history-to-master/"/>
     <id>http://coderuse.com/2016/08/Moving-new-Git-branch-with-different-history-to-master/</id>
     <published>2016-08-22T10:42:04.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Today I’ve learned a new thing about Git. Actually some days back, we started re-implementation of one of our old web app. Previously, the app was written with Jquery. Some days back, we felt that, it would be better, if we could use ReactJs for the app, as it only shows updates, and each of the updates has it’s own life cycle. So, thought this would be a good use case to leverage the powerful features of ReactJs.&lt;/p&gt;
 &lt;p&gt;Anyway, as this new development happens to be completely different than the previous one, first decided to create a new repository altogether. But, after some considerations, came to the conclusion, that it would be wrong, if we create a completely new repository for a software, that will do essentially the same things as the previous one.&lt;/p&gt;
@@ -684,7 +779,7 @@
     <link href="http://coderuse.com/2016/04/Show-modal-dialog-in-IE-with-IFrame/"/>
     <id>http://coderuse.com/2016/04/Show-modal-dialog-in-IE-with-IFrame/</id>
     <published>2016-04-27T21:12:04.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;We had used modal dialog of IE, in one of our old projects. What we did there, opened one modal dialog, with one url to a external website. In the external page (not maintained by us), one variable &lt;code&gt;returnValue&lt;/code&gt; was set to &lt;code&gt;window&lt;/code&gt; with the intended value (one object actually), and we used to get the resultant from the return value of &lt;code&gt;showModalDialog&lt;/code&gt;, as this returns the value present in &lt;code&gt;window.returnValue&lt;/code&gt; of the modal.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -745,7 +840,7 @@
     <link href="http://coderuse.com/2016/04/JavaScript-bind-a-less-used-magic/"/>
     <id>http://coderuse.com/2016/04/JavaScript-bind-a-less-used-magic/</id>
     <published>2016-04-22T05:45:33.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;There is a method &lt;a href=&quot;https://goo.gl/nNOcH3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bind&lt;/a&gt; available in &lt;code&gt;function.prototype&lt;/code&gt; of JavaScript. Do you know? May be.&lt;/p&gt;
 &lt;p&gt;I got to know about this in detail at quite a later time in my programming carrier. I heard and read about the method. But couldn’t find good example/use-case to use. Recently one of my colleagues came with a puzzle question, how to write this &lt;code&gt;multiply&lt;/code&gt; function so that the following would return &lt;code&gt;120&lt;/code&gt; the product of the numbers passed.&lt;/p&gt;
@@ -792,7 +887,7 @@
     <link href="http://coderuse.com/2016/04/JavaScript-What-is-the-type-of-return/"/>
     <id>http://coderuse.com/2016/04/JavaScript-What-is-the-type-of-return/</id>
     <published>2016-04-20T21:43:02.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;When we think of the &lt;code&gt;return&lt;/code&gt; type, we think of the type of data, returned by the concerned function in JavaScript.&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;welcome&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Welcome!!!&quot;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/// Return type is &#39;String&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -845,7 +940,7 @@
     <link href="http://coderuse.com/2016/03/Security-Concerns-To-Build-One-AngularJS-App/"/>
     <id>http://coderuse.com/2016/03/Security-Concerns-To-Build-One-AngularJS-App/</id>
     <published>2016-03-02T00:19:56.000Z</published>
-    <updated>2018-07-01T18:09:09.223Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;An AngularJS web app finally results in a Single Page Web Application, managing it’s own routes, states (models), incorporating workflows, CRUD operations and much more around some tasks. So, primarily we have to concentrate on the common flaws found in an web app and then figure out what kind of direct or derived vulnerability may be caused in our app. &lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -929,7 +1024,7 @@
     <link href="http://coderuse.com/2015/12/install-deluge/"/>
     <id>http://coderuse.com/2015/12/install-deluge/</id>
     <published>2015-12-13T08:05:37.000Z</published>
-    <updated>2018-07-01T18:09:09.227Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Deluge is a very efficient torrent download/seeding client with a moderately good standard web ui. Though torrent is not acceptable to some extent on the moral ground, I can accept it to download software, songs, movies etc. for small personal uses. Actually why not. I live in India. Most of the Hollywood movies does not release in the theaters. The price of a Western music label is more than per capita income in this country. And I’m not going to sell or do some kind of business with the downloaded digital assets. And most of the movies are not that good to view multiple times. So download-watch-delete cycle is destined for them. With these logic I can justify my use of torrents.&lt;/p&gt;
 &lt;p&gt;There are several clients to use torrent. Why do we need one client with web ui. To remotely administer the download. Why? Personally I don’t like to keep my pc turned on whole night-n-day to download large files. And sometimes it really takes a painfully long time to download. Therefore we need to have a low cost solution for this task. You can setup one Raspberry PI in your home for this. Or you can buy one cheap VPS or if you are damn serious about seeding you can get one dedicated server with a good bandwidth allocation from a p2p allowing provider. In any of this cases you need one sufficiently robust torrent client with an acceptable ui. Deluge is one of the best in this category.&lt;/p&gt;
@@ -970,7 +1065,7 @@
 &lt;p&gt;Now we can reboot our server by &lt;code&gt;init 6&lt;/code&gt;  or &lt;code&gt;reboot -h now&lt;/code&gt;  or start the &lt;em&gt;Deluge&lt;/em&gt; services by&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service deluged start&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;service deluge-web start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;Access the web interface at port &lt;em&gt;8112&lt;/em&gt;. &lt;code&gt;http://yourserver_IP_OR_domain:8112&lt;/code&gt; . It will prompt for a password. Type ‘&lt;em&gt;deluge&lt;/em&gt;‘ and login. This is the default password for the WebUI. And we must change our password upon first login.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/RbZcl4F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/RbZcl4F.png&quot; alt&gt;&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 &lt;p&gt;Also it may be required to connect the &lt;em&gt;daemon&lt;/em&gt; by clicking the ‘&lt;em&gt;Connection Manager&lt;/em&gt;‘ button at the top task-bar.&lt;/p&gt;
 &lt;p&gt;This is not complete. Yet we have to do a little configuration for the &lt;em&gt;Deluge Daemon&lt;/em&gt; and mask our web port with a good context name on our server. We will use NginX for this. And along with that we will add a new security measure. But this is pending for next post. Until then have a good time. :)&lt;/p&gt;
@@ -1004,7 +1099,7 @@
     <link href="http://coderuse.com/2015/12/create-new-tabwindow-from-javascript/"/>
     <id>http://coderuse.com/2015/12/create-new-tabwindow-from-javascript/</id>
     <published>2015-12-04T03:15:43.000Z</published>
-    <updated>2018-07-01T18:09:09.227Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;Yesterday I was stuck in a very strange situation. It was required to open a tab from a success handler of a server call. Actually browser lets open a new tab/window from JavaScript if the ‘opening code’ is directly inside of a user event handler. May be a click, may be blur event or focus event, even page load. Otherwise it understands that the client side code is trying to open a new tab/window unauthorized; and the in-built popup blocker blocks the opening of the same; one browser specific indication of-course shown that a popup has been blocked.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -1055,7 +1150,7 @@
     <link href="http://coderuse.com/2015/11/hello-world/"/>
     <id>http://coderuse.com/2015/11/hello-world/</id>
     <published>2015-11-28T07:51:50.000Z</published>
-    <updated>2018-07-01T18:09:09.227Z</updated>
+    <updated>2020-02-23T16:26:38.956Z</updated>
     
     <content type="html">&lt;p&gt;After thinking a lot and checking the amount of free time I get, finally decided to start a blog. I know after a short period of time eventually I would get bored and just stop to update this site. There is a risk of this to happen. But at-least let’s just start it. Later, we will see. There must be something, I can say, I’ve done this. After working for a long time in service sector, I think this is a common trait built in every software engineers to do something, that s/he can take credit of.&lt;/p&gt;
 &lt;p&gt;Actually what we do, the solutions can be searched and surprisingly people have already come across the same problem one to three years back. StackOverflow is practically “Overflowing” with suitable answers to all of our questions. So there is no need to think over anything. And even if we get a real problem to solve (apparently the solution of which could not be found by Google search), managers understands that and discusses with client with such a rigor and extensiveness, that eventually the poor creature modifies the requirement and the problem gets “SOLVED”.&lt;/p&gt;

@@ -37,7 +37,7 @@
 <p>Now we can reboot our server by <code>init 6</code>  or <code>reboot -h now</code>  or start the <em>Deluge</em> services by</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service deluged start</span><br><span class="line">service deluge-web start</span><br></pre></td></tr></table></figure>
 <p>Access the web interface at port <em>8112</em>. <code>http://yourserver_IP_OR_domain:8112</code> . It will prompt for a password. Type ‘<em>deluge</em>‘ and login. This is the default password for the WebUI. And we must change our password upon first login.</p>
-<p><img src="http://i.imgur.com/RbZcl4F.png" alt=""></p>
+<p><img src="http://i.imgur.com/RbZcl4F.png" alt></p>
 <p>&nbsp;</p>
 <p>Also it may be required to connect the <em>daemon</em> by clicking the ‘<em>Connection Manager</em>‘ button at the top task-bar.</p>
 <p>This is not complete. Yet we have to do a little configuration for the <em>Deluge Daemon</em> and mask our web port with a good context name on our server. We will use NginX for this. And along with that we will add a new security measure. But this is pending for next post. Until then have a good time. :)</p>

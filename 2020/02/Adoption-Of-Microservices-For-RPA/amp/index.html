@@ -2,8 +2,8 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="http://coderuse.com/2016/08/Moving-new-Git-branch-with-different-history-to-master/index.html" >
-    <title>Moving new Git branch with different history to master | CodeRuse</title>
+    <link rel="canonical" href="http://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/index.html" >
+    <title>Adoption Of Microservices For RPA | CodeRuse</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300|Inconsolata" />
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -26,14 +26,21 @@
 		{
 			"@context": "http://schema.org",
 			"@type": "BlogPosting",
-			"headline": "Moving new Git branch with different history to master",
+			"headline": "Adoption Of Microservices For RPA",
 			
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
-			    "@id":"http://coderuse.com/2016/08/Moving-new-Git-branch-with-different-history-to-master/"
+			    "@id":"http://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/"
 			},
-			"datePublished": "2016-08-22T10:42:04.000Z",
+			"datePublished": "2020-02-23T06:23:45.000Z",
 			"dateModified": "2020-02-23T16:26:38.956Z",
+			
+			"image": {
+				"@type": "ImageObject",
+				"url": "https://i.imgur.com/Xj1MdwQ.jpg",
+				"width" : "960",
+				"height" : "560"
+			},
 			
 			"author": {
 			    "@type": "Person",
@@ -1531,14 +1538,14 @@ amp-twitter {
   	<!-- container -->
   	<div id="container">
 	  	<div id="main">
-		    <article id="post-Moving-new-Git-branch-with-different-history-to-master" class="post">
+		    <article id="post-Adoption-Of-Microservices-For-RPA" class="post">
 		    
 		    	<!-- entry title -->
 				<div class="title-cover">
 					<div class="entry-header">
 						
 						  <h1 class="article-title entry-title" itemprop="name">
-						    <a href="http://coderuse.com/2016/08/Moving-new-Git-branch-with-different-history-to-master/" target="_blank" itemprop="url">Moving new Git branch with different history to master</a>
+						    <a href="http://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/" target="_blank" itemprop="url">Adoption Of Microservices For RPA</a>
 						  </h1>
 						
 					</div>
@@ -1546,7 +1553,7 @@ amp-twitter {
 					<!-- datePublished -->
 					<div class="entry-meta-header">
 						<span class="meta-elements date">
-							<time datetime="Aug 22, 2016" itemprop="datePublished">Aug 22, 2016</time>
+							<time datetime="Feb 23, 2020" itemprop="datePublished">Feb 23, 2020</time>
 						</span>
 					</div>
 				</div>
@@ -1580,21 +1587,74 @@ amp-twitter {
 			    	
 			    	
 			    	<!-- content -->
-			  		<p>Today I’ve learned a new thing about Git. Actually some days back, we started re-implementation of one of our old web app. Previously, the app was written with Jquery. Some days back, we felt that, it would be better, if we could use ReactJs for the app, as it only shows updates, and each of the updates has it’s own life cycle. So, thought this would be a good use case to leverage the powerful features of ReactJs.</p>
-<p>Anyway, as this new development happens to be completely different than the previous one, first decided to create a new repository altogether. But, after some considerations, came to the conclusion, that it would be wrong, if we create a completely new repository for a software, that will do essentially the same things as the previous one.</p>
-<p>So, created one orphan branch from master.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b --orphan new_version</span><br><span class="line">git rm &lt;all-the-unnecessary-files&gt;</span><br><span class="line"><span class="comment">## Make changes in the code base</span></span><br><span class="line">git add .</span><br><span class="line">git commit -am <span class="string">"new_version: Initialize"</span></span><br><span class="line"><span class="comment"># Generally the remote is 'origin', if not change as required</span></span><br><span class="line">git push origin new_version</span><br></pre></td></tr></table></figure>
-<p>And continued development on that.</p>
-<p>Until this stage, there was no problem. But, problem started, when we tried to push this branch to master. We could not merge this branch to master, as that would nullify the effort to make a new commit history for the new version.</p>
-<p>Decided to delete the master branch and create new master branch from <code>new_version</code>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Create a backup of the old version</span></span><br><span class="line">git checkout master</span><br><span class="line">git checkout -b old_version</span><br><span class="line"><span class="comment"># And push the backup to remote</span></span><br><span class="line">git push origin old_version</span><br><span class="line"><span class="comment"># '-D' is needed instead of '-d', as current branch </span></span><br><span class="line"><span class="comment"># and 'master' branch has different commit history</span></span><br><span class="line"><span class="comment">##### Following error will come</span></span><br><span class="line"><span class="comment"># error: The branch 'master' is not fully merged.</span></span><br><span class="line"><span class="comment"># If you are sure you want to delete it, run 'git branch -D master'.</span></span><br><span class="line">git branch -D master</span><br></pre></td></tr></table></figure>
-<p>Now, we can’t delete the master branch from remote straight away. It would give the following error.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">To git@github.com:username/repo.git</span><br><span class="line"> ! [remote rejected] master (refusing to delete the current branch: refs/heads/master)</span><br><span class="line">error: failed to push some refs to <span class="string">'git@github.com:username/repo.git'</span></span><br></pre></td></tr></table></figure>
-<p>As our repository is hosted in Github, we could change the default branch temporarily to <code>new_version</code> in the branches tab of settings page of the repository. And delete the <code>master</code> branch in <code>remote</code>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin :master</span><br><span class="line"><span class="comment"># To git@github.com:username/repo.git</span></span><br><span class="line"><span class="comment">#  - [deleted]         master</span></span><br></pre></td></tr></table></figure>
-<p>Now, create the new <code>master</code> branch from <code>new_version</code>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout new_version</span><br><span class="line">git checkout -b master</span><br><span class="line"><span class="comment"># And check-in this new master branch</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-<p>Now, change the <code>default</code> branch to <code>master</code> in Github.</p>
+			  		<blockquote>
+<p>The global robotic process automation market size was valued at USD 1.1 billion in 2019 and is anticipated to witness a CAGR of 33.6% from 2020 to 2027.<br><a href="https://www.grandviewresearch.com/industry-analysis/robotic-process-automation-rpa-market" target="_blank" rel="external">Grand View Research</a></p>
+</blockquote>
+<blockquote>
+<p>Global spends on RPA programs are being projected to rise to 2.4 billion USD by 2022.<br><a href="https://www.gartner.com/en/newsroom/press-releases/2018-11-13-gartner-says-worldwide-spending-on-robotic-process-automation-software-to-reach-680-million-in-2018" target="_blank" rel="external">Gartner Report</a>.</p>
+</blockquote>
+<p>No doubt Robotic Process Automation is taking the front seat for the majority investments of the enterprises in the coming years. From <a href="https://www2.deloitte.com/us/en/pages/operations/articles/global-robotic-process-automation-report.html" target="_blank" rel="external">Deloitte’s third Annual Global RPA Survey Report</a>, 35 percent of more than four hundred executives responsible for running transactional operations such as global business services, shared services, finance, procurement, HR, marketing, and operations agreed to “Focus on continuous improvement”, 24 percent to “Increase level of automation” and 17 percent to “Develop analytics capabilities”. Given the high impact of RPA on these top-three priorities, continued investment in its adoption is not surprising.</p>
+<blockquote>
+<p>Organizations are seeking to embrace RPA solutions swiftly while aspiring to realize productivity gains with minimal CaPex (capital expenditure). However, good intentions and promising technologies alone cannot yield the desired results. Organizations are facing teething issues while scaling their RPA implementations from individual business process automation to enterprise-grade RPA. These challenges are classified into three themes</p>
+<ul>
+<li>bot instability</li>
+<li>low bot velocity</li>
+<li>code base complexity issues</li>
+</ul>
+<p>Excerpts from <a href="https://medium.com/@sharad_shukla/leveraging-microservices-design-methodology-for-streamlined-bot-development-9d40d96e410f" target="_blank" rel="external">Sharad Shukla’s Blog</a></p>
+</blockquote>
+<p>Most popular and used solutions for RPA, like UIPath, Blue Prism starts like POCs / experiments by the executives or business users in organisations and later come out to be hard to maintain, support and develop complex business workflows. Even with the concepts like <a href="https://www.linkedin.com/pulse/microbots-architecture-rpa-robson-fernando-veiga/" target="_blank" rel="external">Microbots Architechture for RPA</a>, popular solutions fails to meet sweet spot of price vs performance ratio with the growing business needs.</p>
+<p>Now let’s calculate approximate running cost for using popular RPA solution provider like UIPath. As the pricing has not been clearly mentioned on their website. Following pricing information has bee taken from one of popular <a href="https://www.edureka.co/community/58057/pricing-scheme-uipath-uipath-studio-orchestrator-licence" target="_blank" rel="external">learning platform’s forum thread</a>. Also we will try to understand why there has been some <a href="https://ui.vision/blog/uipath-pricing/" target="_blank" rel="external">concerns over this</a>. Not just UIPath, also compare the cost of developing, deploying, maintaining Blue Prism solutions from this <a href="https://www.itcentralstation.com/product_reviews/blue-prism-review-62487-by-sharad-soni" target="_blank" rel="external">detailed post</a>.</p>
+<p>Here we are going to examine the approach to design, develop, deployment and maintainance for a very simple requirement posed in one of the <a href="https://forum.uipath.com/t/build-scalable-solution/19923" target="_blank" rel="external">support tickets</a> of UIPath.</p>
+<p>Let’s try to chalk out the requirements. The customer stated in the final post of the thread that he is very happy with 4 un-attended bots, governed by one orchestrator (included in the initial diagram) with UIPath Studio running on the same Windows server with 16GB of RAM (as was the discussion in the earlier posts in the same thread). </p>
+<p>With the pricing model of UIPath, </p>
+<ul>
+<li>licenses for four bots costs around $8000 x 4 = $32000/year</li>
+<li>orchestrator around $20000/year</li>
+<li>the Studio around $2000/year at the minimum price</li>
+<li>the Windows Server 2016 (assuming as the customer had one bot previously on the server) comes at around $770 per two cores, plus maintaintenance $5000 per year at minimum.</li>
+</ul>
+<p>So, in total almost <em>$62000 per year</em> to process emails from customers and creating various tasks to be performed based on the inputs in the mail. </p>
+<p>May be the bots here are responding the customers with some canned response also, <em>without knowing the sentiment of the customers</em>. Here I’ve excluded the development cost for the workflows to be run on the bots. But surely we will come back to it later. And being completely driven by the UI, it’s not hard to imagine that preparing a proper and correct workflow, it would require jugglery of loops and if-else conditions, tricky manipulation of available limited options and of-course lot of frustrating to-n-fro conversations with customer supports.</p>
+<p>Now, come to the solution with custom made micro-apps using AI services from cloud providers like Azure, AWS, Google.</p>
+<p>Ofcourse I’m slightly biased towards Microsoft Platform, as I’ve been working for a long time with C# and Microsoft Azure. Microsoft also <a href="https://www.zdnet.com/article/microsoft-says-it-has-come-a-long-way-since-that-open-source-comment/" target="_blank" rel="external">have come a long way</a> since the days of being closed with a proprietary operating system like Windows XP. Now we can develop, build and deploy with <a href="https://docs.microsoft.com/en-us/archive/msdn-magazine/2016/april/net-core-net-goes-cross-platform-with-net-core" target="_blank" rel="external">.Net Core on cross platform</a>, means same program can run on Windows, Linux and Mac, all major OS platforms. And .Net Core’s performance on Linux is <a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/csharp.html" target="_blank" rel="external">quite impressive</a>(sometimes it’s even better than C++). And Azure though started late, emerged with feature rich offerrings, more availability zones and of-course lower priced services among three. And among the top three runners showing <a href="https://intellipaat.com/blog/aws-vs-azure-vs-google-cloud/" target="_blank" rel="external">most growth rate</a> and <a href="https://www.datamation.com/cloud-computing/aws-vs-azure-vs-google-cloud-comparison.html" target="_blank" rel="external">second in customer preference</a>.</p>
+<p>Let’s figure out the solution we would need to cater the requirement of the customer.</p>
+<p>First we need a service to read the mails. There are plenty of examples <a href="https://www.c-sharpcorner.com/UploadFile/jj12345678910/reading-email-and-attachment-from-microsoft-exchange-server/" target="_blank" rel="external">like this</a> to read mails from exchange servers. By using these we would be able to develop a decent program to read incoming mails from a particular inbox. This mail reader application would just queue the mails into a <em>Email Processing Queue</em>.</p>
+<p>Specifics of the tasks created/executed by the UIPath robot is not very clear from the thread. But in the flow diagram given by the customer, may be along with responding customer with a mail, it’s creating Excel reports and feeding data to some databases.</p>
+<p>For our solution let’s make the email processing a bit more complex. Suppose along with customer support requests, we are also getting invoices from the vendors. So, our mail-receiver application has to first sort through the received mails like a post office. This sorting can be done first by checking the mail address the mail has been sent to. But there may be some emails sent by the customers to wrong email address. So the application also has to understand the intent of the email to sort correctly. To understand this “Intent” / “Emotion” we can use <a href="https://azure.microsoft.com/en-in/services/cognitive-services/text-analytics/" target="_blank" rel="external">Azure Text Analytics Service</a>. It can send sentiment and classification of the words written in a piece of text.</p>
+<p>Also the invoice mails may contain scanned images of physical bills, challans etc. We have to persist relevant data into the invoice database to create reports. For this we can use <a href="https://azure.microsoft.com/en-in/services/cognitive-services/computer-vision/" target="_blank" rel="external">Azure Computer Vision</a>. This service can respond back with the texts available in the image. Once we get the information we can persist the info in the invoice database.</p>
+<p>From the customer support mail after understanding the intent or the request itself, the application itself can create tasks / orders to work with or process the invoices from vendors.</p>
+<p>In total we need 6 micro-services.</p>
+<ul>
+<li><strong>Email Reader Micro-Service</strong>: This would just read the incoming mails and put them into a processing queue</li>
+<li><strong>Email Queue Processing Micro-Service</strong>: This would sort through the mails and put into department specific queue. While sorting this would call Text Analytics Service, get response, looks for specific words to analyse to put the mail into correct departments’ queue. It also attaches the response with the email while putting into the department queues for future references.</li>
+<li><strong>Accounts Queue Processing Micro-Service</strong>: This would get the mail, download all the attachments if there be any. Send the images to Azure OCR API, get relevant information, persist the relevant information into the DB, revert back with one email to the vendor for some more supporting documents including the status of the raised invoice.</li>
+<li><strong>Customer Support Processing Micro-Service</strong>: From the intent of the mail received from the Azure Text Service, create proper order / task for the internal team to work with, or if possible send a mail to the customer containing some relevant troubleshooting information.</li>
+<li><strong>Customer Relations Micro-Service</strong>: For this we are planning for a very simple workflow. It would only send emails on customer’s birthdays / anniversaries. Also it can take responsibilities to send pacifier mails / offers to customers with long standing issues.</li>
+<li><strong>Email Sender Micro-Service</strong>: This is a very simple application which can only send emails.</li>
+</ul>
+<p>Now let’s understand the deployment and interactions among these with the following diagram.</p>
+<p><p><amp-img src="https://i.imgur.com/Xj1MdwQ.jpg" width="960" height="560" layout="responsive"></amp-img></p></p>
+<p>All these six microservices can be easily deployed on a five node Kubernetes Cluster on Azure with 2 cores and 16 GB of RAM running Linux OS (Azure deploys with Ubuntu). On East US 2 region the said configuration comes at around $110/month each node. So, running cost of the whole solution comes at around $550/month, accumulating $6600/year. No license cost or other hidden costs. And this cluster would be much more powerful than the server with 16 GB RAM running 4 bots, orchestrator and studio.</p>
+<p>Let’s talk about pros and cons of two approaches.</p>
+<h3 id="Popular-RPA-solutions-like-UIPath-Blue-Prism"><a href="#Popular-RPA-solutions-like-UIPath-Blue-Prism" class="headerlink" title="Popular RPA solutions like UIPath, Blue Prism"></a>Popular RPA solutions like UIPath, Blue Prism</h3><h4 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h4><ul>
+<li>Easy to start with</li>
+<li>Requires low skill developers to develop and maintain</li>
+</ul>
+<h4 id="Cons"><a href="#Cons" class="headerlink" title="Cons"></a>Cons</h4><ul>
+<li>Running (mainly license) cost is quite large </li>
+<li>Reusability of bot code is almost zero, making support also quite expensive</li>
+<li>Low bot speed</li>
+<li>Bot instability</li>
+</ul>
+<h4 id="RPA-With-MicroServices"><a href="#RPA-With-MicroServices" class="headerlink" title="RPA With MicroServices"></a>RPA With MicroServices</h4><h3 id="Pros-1"><a href="#Pros-1" class="headerlink" title="Pros"></a>Pros</h3><ul>
+<li>Low OPEX</li>
+<li>Being microservice, extremely extensible</li>
+</ul>
+<h4 id="Cons-1"><a href="#Cons-1" class="headerlink" title="Cons"></a>Cons</h4><ul>
+<li>Needs better planning, design and more skilled developers. But that compensates with the ongoing OPEX of the solution within two to three years.</li>
+</ul>
+<p>To conclude, ofcourse starting RPA with MicroServices has cost. But compare it with the maintenance and running cost. And if RPA needs complex workflow with lot of touchpoints, like cloud sevices from Salesforce, Oracle or needs integrations with AI services or needs real time processing (this can be done with CEP on Spark clusters), it’s always better to opt for MicroServices.</p>
 
 			  		
 			  		
@@ -1617,20 +1677,14 @@ amp-twitter {
 						<ul class="article-categories-list">
 							
 					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/Cookbook/" class="link-gaTrack" data-linkType="link-categories">
-					    				Cookbook
+					    			<a class="article-categories-list-link" href="/categories/MicroService/" class="link-gaTrack" data-linkType="link-categories">
+					    				MicroService
 					    			</a>
 					    		</li>
 							
 					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/Cookbook/Programming/" class="link-gaTrack" data-linkType="link-categories">
-					    				Programming
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/Cookbook/Programming/Software-Development/" class="link-gaTrack" data-linkType="link-categories">
-					    				Software Development
+					    			<a class="article-categories-list-link" href="/categories/MicroService/Technical/" class="link-gaTrack" data-linkType="link-categories">
+					    				Technical
 					    			</a>
 					    		</li>
 							
@@ -1646,14 +1700,14 @@ amp-twitter {
 						<ul class="article-tag-list">
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/branch/" class="link-gaTrack" data-linkType="link-tag">
-					    				branch
+					    			<a class="article-tag-list-link" href="/tags/microservices/" class="link-gaTrack" data-linkType="link-tag">
+					    				microservices
 					    			</a>
 					    		</li>
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/git/" class="link-gaTrack" data-linkType="link-tag">
-					    				git
+					    			<a class="article-tag-list-link" href="/tags/rpa/" class="link-gaTrack" data-linkType="link-tag">
+					    				rpa
 					    			</a>
 					    		</li>
 							
@@ -1668,19 +1722,11 @@ amp-twitter {
 		  	
 			<nav id="article-nav">
 			  
-			  <a href="/2016/09/CI-with-Vexor/./amp/" id="article-nav-newer" class="article-nav-link-wrap">
+			  
+			  <a href="/2018/10/OIDC-Acquiring-Token-Implicit-Flow-Azure-Active-Directory/./amp/" id="article-nav-older" class="article-nav-link-wrap">
 			    <div class="article-nav-title">
 			      
-			        CI with Vexor
-			      
-			    </div>
-			  </a>
-			  
-			  
-			  <a href="/2016/04/Show-modal-dialog-in-IE-with-IFrame/./amp/" id="article-nav-older" class="article-nav-link-wrap">
-			    <div class="article-nav-title">
-			      
-			        Show modal dialog in IE with IFrame
+			        OIDC - Acquiring Access Token By Implicit Flow From Azure Active Directory
 			      
 			    </div>
 			  </a>
