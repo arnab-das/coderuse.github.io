@@ -2,8 +2,8 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="http://coderuse.com/2015/11/hello-world/index.html" >
-    <title>Hello world! | CodeRuse</title>
+    <link rel="canonical" href="http://coderuse.com/2020/02/Hybrid-Solution-For-RPA-w-Microservices/index.html" >
+    <title>Hybrid Solution For RPA With Microservices | CodeRuse</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300|Inconsolata" />
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -26,14 +26,21 @@
 		{
 			"@context": "http://schema.org",
 			"@type": "BlogPosting",
-			"headline": "Hello world!",
+			"headline": "Hybrid Solution For RPA With Microservices",
 			
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
-			    "@id":"http://coderuse.com/2015/11/hello-world/"
+			    "@id":"http://coderuse.com/2020/02/Hybrid-Solution-For-RPA-w-Microservices/"
 			},
-			"datePublished": "2015-11-28T07:51:50.000Z",
+			"datePublished": "2020-02-29T06:23:45.000Z",
 			"dateModified": "2020-02-28T13:13:57.045Z",
+			
+			"image": {
+				"@type": "ImageObject",
+				"url": "https://i.imgur.com/Xj1MdwQ.jpg",
+				"width" : "960",
+				"height" : "560"
+			},
 			
 			"author": {
 			    "@type": "Person",
@@ -1531,14 +1538,14 @@ amp-twitter {
   	<!-- container -->
   	<div id="container">
 	  	<div id="main">
-		    <article id="post-hello-world" class="post">
+		    <article id="post-Hybrid-Solution-For-RPA-w-Microservices" class="post">
 		    
 		    	<!-- entry title -->
 				<div class="title-cover">
 					<div class="entry-header">
 						
 						  <h1 class="article-title entry-title" itemprop="name">
-						    <a href="http://coderuse.com/2015/11/hello-world/" target="_blank" itemprop="url">Hello world!</a>
+						    <a href="http://coderuse.com/2020/02/Hybrid-Solution-For-RPA-w-Microservices/" target="_blank" itemprop="url">Hybrid Solution For RPA With Microservices</a>
 						  </h1>
 						
 					</div>
@@ -1546,7 +1553,7 @@ amp-twitter {
 					<!-- datePublished -->
 					<div class="entry-meta-header">
 						<span class="meta-elements date">
-							<time datetime="Nov 28, 2015" itemprop="datePublished">Nov 28, 2015</time>
+							<time datetime="Feb 29, 2020" itemprop="datePublished">Feb 29, 2020</time>
 						</span>
 					</div>
 				</div>
@@ -1580,10 +1587,32 @@ amp-twitter {
 			    	
 			    	
 			    	<!-- content -->
-			  		<p>After thinking a lot and checking the amount of free time I get, finally decided to start a blog. I know after a short period of time eventually I would get bored and just stop to update this site. There is a risk of this to happen. But at-least let’s just start it. Later, we will see. There must be something, I can say, I’ve done this. After working for a long time in service sector, I think this is a common trait built in every software engineers to do something, that s/he can take credit of.</p>
-<p>Actually what we do, the solutions can be searched and surprisingly people have already come across the same problem one to three years back. StackOverflow is practically “Overflowing” with suitable answers to all of our questions. So there is no need to think over anything. And even if we get a real problem to solve (apparently the solution of which could not be found by Google search), managers understands that and discusses with client with such a rigor and extensiveness, that eventually the poor creature modifies the requirement and the problem gets “SOLVED”.</p>
-<p>With having no friend and attachments outside of the office, this blog will ultimately turn into a common “TECHNOLOGY BLOG”. I know. But, I’ll try to write fascinating ideas, conceptions to me.</p>
-<p>And of-course let’s hope that, I do not lose interest to update this. :-)</p>
+			  		<p>In my <a href="https://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/">previous post</a>, talked about how we can optimize RPA deployments in terms of cost, performance, handling complex use cases and optimally re-use components by using microservices. There are some scenarios, where implementing microservices can be costly in terms of resource expenditure and also cost for third party services. In this post we will try to figure out flow and integration of one of such use-cases.</p>
+<p>There are numerous questions about possibility / how-to-do / complexity for RPA with WhatsApp on <a href="https://forum.uipath.com/search?q=whatsapp" target="_blank" rel="external">UIPath forum</a>. It’s quite natural. As even for an advanced developer, it takes substantial time to integrate WhatsApp session messages from providers like <a href="https://www.twilio.com/whatsapp" target="_blank" rel="external">Twilio</a>, moreover it’s pricing also a <a href="https://www.twilio.com/whatsapp/pricing/us" target="_blank" rel="external">bit high</a> for something that we are used to use as free.</p>
+<p>Now, doing the scraping for new messages and sending messages via <a href="https://web.whatsapp.com/" target="_blank" rel="external">WhatsApp</a> with UIPath or Blue Prism may not be a piece-of-cake but definitely is doable. For the services like, WhatsApp where APIs are kind of closed or expensive, or only desktop app is available, hybrid solution with UIPath / Blue Prism along with Microservices can be quick and easy to build, deploy and maintain.</p>
+<p>Suppose we want to build one food ordering system for a food delivery startup like Zomato / Swiggy etc. Whenever customer would ping to a specific number on WhatsApp, our solution should be able to respond with greetings, ask for preference and present options from different restaurants with their price via WhatsApp messages.</p>
+<p>Here we are following micro-bots design pattern to build the solution. We need </p>
+<ul>
+<li>Two micro-bots to be deployed as un-attended bots<ul>
+<li>Get messages bot</li>
+<li>Send messages bot</li>
+</ul>
+</li>
+</ul>
+<p>To process the incoming messages, we can either use <a href="https://flink.apache.org/" target="_blank" rel="external">Apache Flink</a> or <a href="https://storm.apache.org/" target="_blank" rel="external">Apache Storm</a> for CEP or create small micro applications to interpret and prepare response for each of the messages. We will create a very simple microservice as deployment and maintenance of both Flink and Storm are complex and our solution does not have that much complex use-cases to handle.</p>
+<p>This message processor application has to respond immediately, otherwise user may loose interest. Also to interpret user’s preference / choices we have to use <a href="https://en.wikipedia.org/wiki/Natural_language_processing" target="_blank" rel="external">NLP</a>. We would use <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/" target="_blank" rel="external">Azure Text Analytics Service</a> for this. For a short discussion around why Azure vs Google Cloud or AWS, please refer to our <a href="https://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/">previous post</a>. This application should process the incoming messages quickly and swiftly.</p>
+<p><code>Get Messages Bot</code> should scrape the new messages and put into a Message Bus. We will use <a href="https://www.rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>. It’s fast and can work with a very high throughput with <a href="https://content.pivotal.io/blog/rabbitmq-hits-one-million-messages-per-second-on-google-compute-engine" target="_blank" rel="external">relatively less resources</a>. Other choice for an enterprise service bus may be <a href="https://solace.com/products/event-broker/" target="_blank" rel="external">Solace PubSub+</a>. But configuration wise it’s a bit complex and needs more resources than RabbitMQ. And Solace’s Standard version has a limitation for concurrent connections and messages per second.</p>
+<p>Adhering to Single Responsibility Principle of <a href="https://itnext.io/solid-principles-explanation-and-examples-715b975dcad4" target="_blank" rel="external">SOLID</a>, we are breaking the message processor application into three different applications. Each of them would interact with each other via the enterprise bus, that we have configured with RabbitMQ. And also to facilitate the processing of the messages and their followups, we would use a <a href="https://rclayton.silvrback.com/use-state-machines" target="_blank" rel="external">State Machine</a>. To understand this, we should first understand, why it’s required. Suppose a user first IMs that, s/he would like to have some dishes from <a href="https://en.wikipedia.org/wiki/Indian_cuisine" target="_blank" rel="external">Indian Cuisines</a>. Immediately after that, before getting any responses s/he again expresses her/his interest in <a href="https://en.wikipedia.org/wiki/Mughlai_cuisine" target="_blank" rel="external">Mughlai</a> dishes. So, after this responding with a general recommnedation of Indian dishes won’t look good. We should restrict our search only among the Mughlai dishes. For that we should use a Finite State Machine for this kind of scenario. Though <a href="https://barrgroup.com/embedded-systems/how-to/state-machines-event-driven-systems" target="_blank" rel="external">this post</a> does not match our solution domain, but explains the concept in a very straighforward way.</p>
+<p>We would need four microservices along with two bots.</p>
+<ul>
+<li><strong>Incoming Message Processor</strong> this would take up the messages one-after-another from the Enterprise Service Bus (ESB), pushed by the <code>Get messages bot</code>, call the NLP service to get the classification words and then it would put the message along with the reponse from the NLP into the ESB.</li>
+<li><strong>Cuisine Search App</strong> this would take up the messages from the previous one and search accordingly and put the search result into ESB along with the message and the classification words.</li>
+<li><strong>Response Preparation Processor</strong> this would prepare the response out of the search results from the <code>Cuisine Search App</code> and put into the ESB to be taken by the <code>Send messages bot</code>.</li>
+<li><strong>State Machine</strong> effectively this would process each of the new messages put by the <code>Get messages bot</code> and manages the state. And all the above three apps and the <code>Send message bot</code> always should regard the status of a specific message processing of each of the messages. In this way, we can prevent sending unrelated results to a customer.</li>
+</ul>
+<p>Now let’s review the flow and interation among the RPA bots along with the micro-services from the following picture.</p>
+<p><p><amp-img src="https://i.imgur.com/Xj1MdwQ.jpg" width="960" height="560" layout="responsive"></amp-img></p></p>
+<p>With this hybrid solution, we have used best of both worlds. Made our life easy and solution a bit cheaper with the use of RPA bots to scrape new messages from WhatsApp web and send messages. Used microservices to accelerate the processing of the messages and finally preparation of the response using AI. By using the AI NLP, taken account of the customer emotion and changing preferences.</p>
 
 			  		
 			  		
@@ -1606,14 +1635,14 @@ amp-twitter {
 						<ul class="article-categories-list">
 							
 					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/Personal/" class="link-gaTrack" data-linkType="link-categories">
-					    				Personal
+					    			<a class="article-categories-list-link" href="/categories/MicroService/" class="link-gaTrack" data-linkType="link-categories">
+					    				MicroService
 					    			</a>
 					    		</li>
 							
 					    		<li class="article-categories-list-item">
-					    			<a class="article-categories-list-link" href="/categories/Personal/Sattire/" class="link-gaTrack" data-linkType="link-categories">
-					    				Sattire
+					    			<a class="article-categories-list-link" href="/categories/MicroService/Technical/" class="link-gaTrack" data-linkType="link-categories">
+					    				Technical
 					    			</a>
 					    		</li>
 							
@@ -1629,20 +1658,14 @@ amp-twitter {
 						<ul class="article-tag-list">
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/daily-routine/" class="link-gaTrack" data-linkType="link-tag">
-					    				daily-routine
+					    			<a class="article-tag-list-link" href="/tags/microservices/" class="link-gaTrack" data-linkType="link-tag">
+					    				microservices
 					    			</a>
 					    		</li>
 							
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/office/" class="link-gaTrack" data-linkType="link-tag">
-					    				office
-					    			</a>
-					    		</li>
-							
-					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/tags/view-towards-life/" class="link-gaTrack" data-linkType="link-tag">
-					    				view-towards-life
+					    			<a class="article-tag-list-link" href="/tags/rpa/" class="link-gaTrack" data-linkType="link-tag">
+					    				rpa
 					    			</a>
 					    		</li>
 							
@@ -1657,14 +1680,14 @@ amp-twitter {
 		  	
 			<nav id="article-nav">
 			  
-			  <a href="/2015/12/create-new-tabwindow-from-javascript/./amp/" id="article-nav-newer" class="article-nav-link-wrap">
+			  
+			  <a href="/2020/02/Adoption-Of-Microservices-For-RPA/./amp/" id="article-nav-older" class="article-nav-link-wrap">
 			    <div class="article-nav-title">
 			      
-			        Create new tab/window from JavaScript
+			        Adoption Of Microservices For RPA
 			      
 			    </div>
 			  </a>
-			  
 			  
 			</nav>
 			
