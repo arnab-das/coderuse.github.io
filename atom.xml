@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://coderuse.com/"/>
-  <updated>2020-02-28T13:13:57.045Z</updated>
+  <updated>2020-02-29T14:40:03.601Z</updated>
   <id>http://coderuse.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://coderuse.com/2020/02/Hybrid-Solution-For-RPA-w-Microservices/"/>
     <id>http://coderuse.com/2020/02/Hybrid-Solution-For-RPA-w-Microservices/</id>
     <published>2020-02-29T06:23:45.000Z</published>
-    <updated>2020-02-28T13:13:57.045Z</updated>
+    <updated>2020-02-29T14:40:03.601Z</updated>
     
     <content type="html">&lt;p&gt;In my &lt;a href=&quot;https://coderuse.com/2020/02/Adoption-Of-Microservices-For-RPA/&quot;&gt;previous post&lt;/a&gt;, talked about how we can optimize RPA deployments in terms of cost, performance, handling complex use cases and optimally re-use components by using microservices. There are some scenarios, where implementing microservices can be costly in terms of resource expenditure and also cost for third party services. In this post we will try to figure out flow and integration of one of such use-cases.&lt;/p&gt;
 &lt;p&gt;There are numerous questions about possibility / how-to-do / complexity for RPA with WhatsApp on &lt;a href=&quot;https://forum.uipath.com/search?q=whatsapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UIPath forum&lt;/a&gt;. It’s quite natural. As even for an advanced developer, it takes substantial time to integrate WhatsApp session messages from providers like &lt;a href=&quot;https://www.twilio.com/whatsapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Twilio&lt;/a&gt;, moreover it’s pricing also a &lt;a href=&quot;https://www.twilio.com/whatsapp/pricing/us&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bit high&lt;/a&gt; for something that we are used to use as free.&lt;/p&gt;
@@ -46,7 +46,7 @@
 &lt;li&gt;&lt;strong&gt;State Machine&lt;/strong&gt; effectively this would process each of the new messages put by the &lt;code&gt;Get messages bot&lt;/code&gt; and manages the state. And all the above three apps and the &lt;code&gt;Send message bot&lt;/code&gt; always should regard the status of a specific message processing of each of the messages. In this way, we can prevent sending unrelated results to a customer.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now let’s review the flow and interation among the RPA bots along with the micro-services from the following picture.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Xj1MdwQ.jpg&quot; alt=&quot;Hybrid Solution For RPA With Microservices&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/8awZd9q.jpg&quot; alt=&quot;Hybrid Solution For RPA With Microservices&quot;&gt;&lt;/p&gt;
 &lt;p&gt;With this hybrid solution, we have used best of both worlds. Made our life easy and solution a bit cheaper with the use of RPA bots to scrape new messages from WhatsApp web and send messages. Used microservices to accelerate the processing of the messages and finally preparation of the response using AI. By using the AI NLP, taken account of the customer emotion and changing preferences.&lt;/p&gt;
 </content>
     
