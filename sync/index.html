@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeRuse Sync — move your own files into Google Drive</title>
+<meta name="description" content="CodeRuse Sync is a personal, self-hosted tool that copies files from Microsoft OneDrive into the owner's own Google Drive using rclone. It runs locally, has no server, and stores no user data.">
+<link rel="icon" href="/sync/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/sync/_shared.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/sync/">
+      <img src="/sync/logo-120.png" alt="CodeRuse Sync logo">
+      <b>CodeRuse Sync<span>by CodeRuse — coderuse.com</span></b>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>CodeRuse Sync</h1>
+  <p class="lede">A personal, self-hosted utility that copies files from Microsoft OneDrive
+  into the account owner's own Google Drive. It runs on the owner's own computer,
+  has no backend server, and is not offered as a service to other people.</p>
+
+  <h2>What it does</h2>
+  <p><strong>CodeRuse Sync</strong> is a thin configuration layer around
+  <a href="https://rclone.org/" rel="noopener">rclone</a>, an open-source
+  command-line file-transfer program. It is used for a single purpose: performing a
+  one-way transfer of the operator's personal files from a Microsoft OneDrive account
+  into that same person's Google Drive account, so that the files live in one place.</p>
+
+  <ul>
+    <li>Reads files from a Microsoft OneDrive account the operator signs in to.</li>
+    <li>Creates and updates the copies of those files in the operator's Google Drive.</li>
+    <li>Compares file names, sizes and modification times so that unchanged files are skipped on later runs.</li>
+    <li>Writes a local log of what was transferred.</li>
+  </ul>
+
+  <h2>Who it is for</h2>
+  <p>CodeRuse Sync is a single-operator tool. It is not published to an app store, it is
+  not sold, and it does not have user accounts, sign-up, or multi-tenant hosting.
+  The only person who signs in to it is the person running it on their own machine —
+  and that person authorises access to their <em>own</em> Google account only.</p>
+
+  <h2>How it uses your Google Account</h2>
+  <p>When you run CodeRuse Sync for the first time, it opens Google's standard OAuth
+  consent screen in your browser. You choose whether to grant access. If you agree,
+  Google returns an access token to the program running on your own computer.</p>
+
+  <div class="scroll">
+  <table>
+    <tr><th>Permission requested</th><th>Why it is needed</th></tr>
+    <tr>
+      <td><code>https://www.googleapis.com/auth/drive.file</code></td>
+      <td>To create the transferred files and folders in your Google Drive, and to
+          update or verify the files that CodeRuse Sync itself created on a previous run.
+          This permission does <strong>not</strong> give the tool access to any other
+          file already in your Drive.</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="card">
+    <h3>Nothing leaves your machine</h3>
+    <p>There is no CodeRuse Sync server. Your Google credentials, your OAuth tokens and
+    your file contents stay on the computer you run the tool on. They are never sent to
+    coderuse.com or to any third party. Your file contents travel only between Microsoft's
+    servers, your computer, and Google's servers.</p>
+  </div>
+
+  <h2>Revoking access</h2>
+  <p>You can withdraw the tool's access to your Google Account at any time from
+  <a href="https://myaccount.google.com/permissions" rel="noopener">Google Account &rarr;
+  Third-party apps &amp; services</a>. Removing it there immediately invalidates the token
+  stored on your machine. Deleting the local rclone configuration file removes the stored
+  token as well.</p>
+
+  <h2>Source and technology</h2>
+  <p>File transfer is performed by rclone, which is free software released under the MIT
+  licence. CodeRuse Sync adds only the configuration, scheduling and logging around it.
+  No modified or repackaged copy of rclone is distributed.</p>
+
+  <h2>Contact</h2>
+  <p>CodeRuse Sync is maintained by the operator of <a href="https://coderuse.com/">coderuse.com</a>.
+  Questions about this tool, its data handling, or this website can be sent to
+  <a href="mailto:dasarnab45@gmail.com">dasarnab45@gmail.com</a>.</p>
+
+  <p class="meta">Last updated: 10 September 2026.</p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/sync/">Home</a>
+    <a href="/sync/privacy/">Privacy Policy</a>
+    <a href="/sync/terms/">Terms of Service</a>
+    <a href="https://coderuse.com/">coderuse.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

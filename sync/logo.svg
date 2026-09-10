@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="CodeRuse Sync">
+  <rect width="120" height="120" rx="26" ry="26" fill="#192744"/>
+  <g fill="none" stroke="#6da8ff" stroke-width="9" stroke-linecap="butt">
+    <path d="M27.67 49.49 A34 34 0 0 1 90.57 45.10"/>
+    <path d="M92.33 70.51 A34 34 0 0 1 29.43 74.90"/>
+  </g>
+  <path d="M93.67 55.27 L98.40 39.59 L81.63 48.50 Z" fill="#6da8ff"/>
+  <path d="M26.33 64.73 L21.60 80.41 L38.37 71.50 Z" fill="#6da8ff"/>
+  <circle cx="60" cy="60" r="6" fill="#ffffff"/>
+</svg>

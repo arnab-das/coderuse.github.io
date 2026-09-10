@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — CodeRuse Sync</title>
+<meta name="description" content="Privacy policy for CodeRuse Sync: what Google user data is accessed, how it is used, stored, shared, retained and deleted.">
+<link rel="icon" href="/sync/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/sync/_shared.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/sync/">
+      <img src="/sync/logo-120.png" alt="CodeRuse Sync logo">
+      <b>CodeRuse Sync<span>by CodeRuse — coderuse.com</span></b>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>Privacy Policy</h1>
+  <p class="lede">This policy explains what data <strong>CodeRuse Sync</strong> accesses,
+  why it accesses it, where that data goes, and how you remove it.</p>
+  <p class="meta">Effective date: 10 September 2026. Last updated: 10 September 2026.</p>
+
+  <h2>1. Who is responsible</h2>
+  <p>CodeRuse Sync is an individually maintained, non-commercial tool published at
+  <a href="https://coderuse.com/sync/">https://coderuse.com/sync/</a> by the operator of
+  coderuse.com. There is no company, no staff and no shared infrastructure behind it.
+  Contact: <a href="mailto:dasarnab45@gmail.com">dasarnab45@gmail.com</a>.</p>
+
+  <h2>2. What the application is</h2>
+  <p>CodeRuse Sync is a command-line utility that runs entirely on the computer of the
+  person using it. It transfers that person's own files from Microsoft OneDrive into that
+  same person's Google Drive. It has no server component, no hosted database, no analytics
+  backend and no user accounts. Nothing the application processes is transmitted to
+  coderuse.com.</p>
+
+  <h2>3. Google user data the application accesses</h2>
+  <p>When you authorise CodeRuse Sync, you grant exactly one OAuth scope:</p>
+
+  <div class="scroll">
+  <table>
+    <tr><th>Scope</th><th>What it allows</th><th>Why it is required</th></tr>
+    <tr>
+      <td><code>.../auth/drive.file</code></td>
+      <td>Create files and folders in your Google Drive, and read, update or delete
+          <em>only</em> the files that this application itself created.</td>
+      <td>The application has to write the copied OneDrive files into your Drive, and on
+          later runs it must re-check those same files so that unchanged ones are skipped
+          instead of uploaded again.</td>
+    </tr>
+  </table>
+  </div>
+
+  <p>Within that scope, the application handles:</p>
+  <ul>
+    <li><strong>File content</strong> — the bytes of the files being copied.</li>
+    <li><strong>File metadata</strong> — names, folder paths, sizes, MIME types, checksums
+        and modification timestamps, used to decide what needs copying.</li>
+    <li><strong>OAuth tokens</strong> — the access token and refresh token Google issues so
+        the transfer can continue without re-prompting you.</li>
+  </ul>
+
+  <p>The application does <strong>not</strong> request or receive your Google password,
+  your contacts, your Gmail, your calendar, your photos, your location, or any Drive file
+  it did not itself create.</p>
+
+  <h2>4. How the data is used</h2>
+  <p>Google user data is used for one purpose only: performing the file transfer you asked
+  for, at the moment you asked for it. Specifically, to create and update your copied files
+  in your Drive, and to compare metadata so that work is not repeated.</p>
+  <p>Google user data is <strong>never</strong> used for advertising, profiling,
+  personalisation, market research, credit assessment, training or improving any machine
+  learning or AI model, or any purpose unrelated to the transfer.</p>
+
+  <h2>5. Storage and security</h2>
+  <ul>
+    <li>OAuth tokens are written to the local rclone configuration file on your own
+        computer (typically <code>~/.config/rclone/rclone.conf</code>). They are not
+        uploaded anywhere.</li>
+    <li>File contents are streamed between Microsoft's servers, your computer and Google's
+        servers over encrypted HTTPS/TLS connections. Copies are not retained by the
+        application beyond what the operating system may cache during a transfer.</li>
+    <li>Logs written by the tool record file names and transfer results. They are stored
+        locally and are never transmitted.</li>
+    <li>Because everything is local, the security of this data is governed by the security
+        of your own machine and account. You are encouraged to protect the configuration
+        file with appropriate file permissions or rclone's built-in configuration
+        encryption.</li>
+  </ul>
+
+  <h2>6. Sharing and disclosure</h2>
+  <p>No Google user data is sold, rented, traded, or transferred to any third party,
+  human or automated. There are no advertisers, no data brokers, no subprocessors and no
+  analytics vendors involved. The only parties that see the data are you, Microsoft
+  (as the source), and Google (as the destination) — each acting under their own terms.</p>
+
+  <h2>7. Limited Use disclosure</h2>
+  <div class="card">
+    <p>CodeRuse Sync's use and transfer of information received from Google APIs adheres to
+    the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google
+    API Services User Data Policy</a>, including its Limited Use requirements.</p>
+  </div>
+
+  <h2>8. Retention and deletion</h2>
+  <ul>
+    <li>OAuth tokens are retained on your machine only until you revoke access or delete
+        the configuration file.</li>
+    <li>Copied files remain in your Google Drive under your control; deleting them in Drive
+        deletes them.</li>
+    <li>Because no data reaches the developer, there is nothing held on the developer's side
+        to request deletion of.</li>
+  </ul>
+
+  <h3>How to revoke access</h3>
+  <ol>
+    <li>Open <a href="https://myaccount.google.com/permissions" rel="noopener">Google Account
+        &rarr; Third-party apps &amp; services</a>.</li>
+    <li>Select <strong>CodeRuse Sync</strong> and choose <strong>Remove access</strong>.</li>
+    <li>Delete the local rclone configuration entry, or the whole
+        <code>rclone.conf</code> file, to remove the stored token from your machine.</li>
+  </ol>
+
+  <h2>9. Children</h2>
+  <p>CodeRuse Sync is not directed at children and is not intended for use by anyone under
+  the age of 13 (or the minimum age required by local law to hold a Google Account).</p>
+
+  <h2>10. This website</h2>
+  <p>The pages at <code>coderuse.com/sync/</code> are static HTML served over HTTPS. They
+  set no cookies of their own and contain no advertising or tracking scripts. Standard
+  server-side request logs may be produced by the hosting and CDN providers that serve
+  coderuse.com.</p>
+
+  <h2>11. Changes to this policy</h2>
+  <p>If this policy changes, the revised version will be published on this page with an
+  updated "last updated" date above. Material changes affecting how Google user data is
+  handled will be reflected here before they take effect.</p>
+
+  <h2>12. Contact</h2>
+  <p>Questions or concerns about this policy:
+  <a href="mailto:dasarnab45@gmail.com">dasarnab45@gmail.com</a>.</p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/sync/">Home</a>
+    <a href="/sync/privacy/">Privacy Policy</a>
+    <a href="/sync/terms/">Terms of Service</a>
+    <a href="https://coderuse.com/">coderuse.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
